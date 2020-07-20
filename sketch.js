@@ -18,13 +18,10 @@ function setup() {
 	world = engine.world;
 
 	//Create the Bodies Here.
-	box = new Dustbin(750,200,90,10);
-    box1 = new Dustbin(790,200,10,70);
-	box2 = new Dustbin(695,200,10,70);
+	box = new Dustbin(700,200,90,100);
+	ground = new Ground(400,500,width,10);
 
-	ground=new Ground(400,height-200,width,10);
-
-	paper = new Paper(50,200,20);
+	paper = new Paper(100,100);
 	Engine.run(engine);
   
 }
@@ -32,11 +29,10 @@ function setup() {
 
 function draw() {
   rectMode(CENTER);
-  background(0);
-  
+  background("sky");
   box.display();
-  box1.display();
-  box2.display();
+ // box1.display();
+  //box2.display();
   ground.display();
   paper.display();
   keyPressed();
@@ -46,7 +42,7 @@ function draw() {
 
 function keyPressed(){
 	if (keyCode === UP_ARROW){
-		Matter.Body.applyForce(paper.body,paper.body.position,{x:3,y:-4});
+		Matter.Body.applyForce(paper.body,paper.body.position,{x:3,y:-6});
 	}
 }
 
